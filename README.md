@@ -1,40 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Next.js Chat Application
+
+This is a two-page web application demonstrating a simple chat interface with smooth UI transitions and state preservation using Next.js, React, and Framer Motion.
+
+## Project Overview
+
+- **Home Page:** Features a main content area with a prominent chat input box at the bottom and chat history displayed directly above it. The chat elements blend seamlessly with the page background.
+- **Secondary Page:** Displays a wider main content area, with the chatbox transformed into a smaller, persistent, dockable component on the right side of the screen. This chatbox can be minimized into an icon.
+- **Minimized Chat:** The chatbox from the Secondary Page can be minimized into a small icon in the bottom-right corner.
+
+## Features
+
+- Seamless and smooth animations/morphing of the chat component between pages and states.
+- Preservation of chat state (e.g., typed input, message history) across page navigations.
+- Responsive design for chat input elements on the home page, ensuring all options fit in a single row.
+- Custom background with cloud imagery.
+
+## Technical Stack
+
+- **Framework:** Next.js
+- **Styling:** CSS Modules
+- **Animation:** Framer Motion
+- **State Management:** React Context API
 
 ## Getting Started
 
-First, run the development server:
+Follow these steps to set up and run the project locally:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1.  **Clone the repository:**
+    ```bash
+    git clone <your-repository-url>
+    cd nextjs-chat-app
+    ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+3.  **Run the development server:**
+    The development server will run on `http://localhost:8080`.
+    ```bash
+    npm run dev
+    ```
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+    Open `http://localhost:8080` in your browser to see the application.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `components/`: Reusable React components (e.g., `Layout.js`, `chatInterface.js`).
+- `contexts/`: React Context API for global state management (`chatContext.js`).
+- `pages/`: Next.js pages (`index.js` for home, `secondary.js`).
+- `public/`: Static assets like images.
+- `styles/`: CSS Modules for component-specific styling (`.module.css` files) and global styles (`globals.css`).
 
-## Learn More
+## Customization
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+- **Chat Messages:** Initial chat messages can be modified in `contexts/chatContext.js`.
+- **Styling:** Adjust styles in the `.module.css` files within the `styles/` directory.
+- **Animations:** Modify animation `variants` in `components/chatInterface.js`.

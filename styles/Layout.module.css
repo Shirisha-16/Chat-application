@@ -1,0 +1,114 @@
+.container {
+    min-height: 100vh;
+    display: flex;
+    background-image: url('/clouds.png'), linear-gradient(to bottom, #E4F5FF, #FFFFFF); /* Separate cloud and gradient images */
+    background-position: 50px 56px, center top; /* Precise position for clouds (left, top), then gradient */
+    background-size: 1870px 450px, cover; /* Precise size for clouds, even larger height; gradient covers */
+    background-repeat: no-repeat, no-repeat; /* No repeat for both */
+    background-attachment: fixed; /* Keep the background fixed during scroll */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+  }
+  
+  .sidebar {
+    width: 60px;
+    background: linear-gradient(to bottom, #E4F5FF, #FFFFFF);
+    border-right: none; /* Remove border-right */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Add subtle shadow to the right */
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 100;
+  }
+  
+  .sidebarContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: 20px 0;
+  }
+  
+  .navItems {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+  }
+  
+  .bottomNavItems {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+  }
+  
+  .navItem {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .navItem:hover {
+    background: rgba(74, 144, 226, 0.1);
+  }
+  
+  .navItem.active {
+    background: #FFFFFF;
+  }
+  
+  .navItem.active .navIcon {
+    filter: brightness(0) invert(0); /* Ensure icon is black/original on white background */
+  }
+  
+  .navIcon {
+    font-size: 18px;
+  }
+  
+  .main {
+    flex: 1;
+    margin-left: 60px;
+    display: flex;
+    flex-direction: column;
+    position: relative; /* Added for positioning the cloud background if needed */
+    z-index: 1; /* Ensure content is above background */
+  }
+  
+  .topBar {
+    background: transparent;
+    border-bottom: none;
+    padding: 0 40px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .topBarContent {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+  
+  .pageTitle {
+    font-size: 18px;
+    font-weight: 500;
+    /* color: #666; */
+    margin: 0;
+  }
+  
+  .content {
+    flex: 1;
+    background: transparent;
+    position: relative;
+    z-index: 1;
+  }
+  

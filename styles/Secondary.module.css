@@ -1,0 +1,24 @@
+.container {
+    min-height: calc(100vh - 60px);
+    position: relative;
+    background: transparent;
+    padding: 40px;
+    padding-right: 740px; /* Adjusted to accommodate new 720px chat interface width */
+  }
+  
+  .content {
+    max-width: 100%;
+    background: transparent;
+    padding-top: 20px; /* Added for spacing from the top */
+  }
+  
+  .mainArea {
+    padding: 2rem;
+    color: #666;
+    font-size: 1.125rem;
+  }
+  
+  .mainArea p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }

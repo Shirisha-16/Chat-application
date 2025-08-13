@@ -1,168 +1,205 @@
-.page {
-  --gray-rgb: 0, 0, 0;
-  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
-  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-
-  display: grid;
-  grid-template-rows: 20px 1fr 20px;
-  align-items: center;
-  justify-items: center;
-  min-height: 100svh;
-  padding: 80px;
-  gap: 64px;
-  font-family: var(--font-geist-sans);
-}
-
-@media (prefers-color-scheme: dark) {
-  .page {
-    --gray-rgb: 255, 255, 255;
-    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
-    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-  }
-}
-
-.main {
+.container {
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  grid-row-start: 2;
+  align-items: center;
+  justify-content: flex-start; /* Align content to the top initially */
+  min-height: calc(100vh - 60px);
+  background: transparent; /* Ensure it blends with the parent background */
+  padding: 0;
 }
 
-.main ol {
-  font-family: var(--font-geist-mono);
-  padding-left: 0;
-  margin: 0;
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: -0.01em;
-  list-style-position: inside;
-}
-
-.main li:not(:last-of-type) {
-  margin-bottom: 8px;
-}
-
-.main code {
-  font-family: inherit;
-  background: var(--gray-alpha-100);
-  padding: 2px 4px;
-  border-radius: 4px;
-  font-weight: 600;
-}
-
-.ctas {
+.content {
+  flex: 1;
   display: flex;
-  gap: 16px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: transparent; /* Ensure it blends with the parent background */
+  padding-bottom: 0; /* Remove fixed padding as content should flow naturally */
 }
 
-.ctas a {
-  appearance: none;
-  border-radius: 128px;
-  height: 48px;
-  padding: 0 20px;
-  border: none;
-  border: 1px solid transparent;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s;
+.mainArea {
+  padding: 2rem;
+  text-align: center;
+  color: #666;
+  font-size: 1.125rem;
+  background: transparent; /* Ensure it blends with the parent background */
+  border: none; /* Remove any potential default or inherited borders */
+  width: 100%; /* Ensure it takes full width within flex container */
+}
+
+.homeMessagesContainer {
+  background: transparent; /* Make transparent */
+  border: none; /* Remove border */
+  border-radius: 8px; /* Keep for consistency, but no visible effect */
+  max-width: 1060px; /* Increased max-width */
+  margin: 20px auto 0 auto;
+  padding: 20px;
+  box-shadow: none; /* Remove shadow */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.messagesList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+  padding-right: 10px; /* Space for scrollbar */
+}
+
+.messageBlock {
+  background: #FFFFFF; /* White background for message bubbles */
+  border: 1px solid #D6E8F7; /* Subtle border for message bubbles */
+  border-radius: 8px; /* Rounded corners for message bubbles */
+  padding: 10px 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+  max-width: 80%; /* Limit message width */
+}
+
+.userMessage {
+  background: #FFFFFF; /* White background for user messages */
+  align-self: flex-end; /* Align user messages to the right */
+}
+
+.aiMessage {
+  background: rgba(0, 81, 126, 0.1); /* #00517E1A for AI messages */
+  align-self: flex-start; /* Align AI messages to the left */
+}
+
+.messageBlock p {
+  margin: 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.messageBlock strong {
+  color: #4A90E2;
+}
+
+.homeInputArea {
+  background: #E8F4FD; /* Light blue background */
+  border: none; /* Removed border */
+  border-radius: 8px 8px 0 0; /* Rounded top corners */
+  max-width: 1060px; /* Increased width */
+  min-height: 160px; /* Set a minimum height to contain both input and actions */
+  margin: 20px auto 0 auto; /* Center and space from messages */
+  padding: 32px 20px 16px 20px; /* Increased padding-top */
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.05); /* Soft shadow for the top */
+  display: flex; /* Make it a flex container */
+  flex-direction: column; /* Stack children vertically */
+  justify-content: space-between; /* Distribute space between input and buttons */
+}
+
+.inputContainer {
+  display: flex; /* Make it a flex container */
+  flex-direction: column; /* Stack input and action buttons vertically */
+  gap: 10px;
+  width: 1000px; /* Space between input and action buttons */
+  /* Removed height: 100% as parent controls overall height */
+}
+
+.messageInput {
+  width: 100%;
+  padding: 15px 20px; /* Adjusted padding */
+  border: none; /* Removed border */
+  border-radius: 24px; /* More rounded */
+  font-size: 1rem;
+  color: #333;
+  background: #FFFFFF; /* White background */
+  outline: none; /* Remove default outline */
+  height: 50px; /* Fixed height for the input field */
+  /* Removed flex-grow: 1 */
+}
+
+.messageInput::placeholder {
+  color: #A0A0A0;
+}
+
+.actionButtons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 8px; /* Adjusted spacing between main groups as per image */
+  width: 100%;
+}
+
+.selectOptionsContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px; /* Adjusted spacing between items as per image */
+  flex-grow: 1;
+  flex-shrink: 1;
+  min-width: 0;
+  flex-wrap: nowrap; /* Explicitly prevent wrapping within this container */
+}
+
+.selectOptionsContainer img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  flex-shrink: 0; /* Prevent images from shrinking */
+}
+
+.selectBtn {
+  padding: 2px 4px;
+  border: 1px solid #D6E8F7;
+  border-radius: 6px;
+  background-color: #FFFFFF;
+  font-size: 0.7rem;
+  color: #555;
   cursor: pointer;
+  flex: 1 1 0%; /* Aggressive flexibility */
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sendActions {
+  display: flex;
+  gap: 8px;
+  margin-left: auto; /* Push to the right */
+}
+
+.actionBtn {
+  background: #F0F0F0;
+  border: 1px solid #D6E8F7;
+  border-radius: 6px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
-  line-height: 20px;
-  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
 }
 
-a.primary {
-  background: var(--foreground);
-  color: var(--background);
-  gap: 8px;
+.actionBtn:hover {
+  background-color: #E0E0E0;
 }
 
-a.secondary {
-  border-color: var(--gray-alpha-200);
-  min-width: 158px;
-}
-
-.footer {
-  grid-row-start: 3;
-  display: flex;
-  gap: 24px;
-}
-
-.footer a {
+.sendBtn {
+  background: #FFE4B9; /* Blue send button */
+  border: none;
+  border-radius: 6px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
 }
 
-.footer img {
-  flex-shrink: 0;
+.sendBtn:hover {
+  background-color: #3A7DCC;
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
-
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
-
-  .footer a:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-}
-
-@media (max-width: 600px) {
-  .page {
-    padding: 32px;
-    padding-bottom: 80px;
-  }
-
-  .main {
-    align-items: center;
-  }
-
-  .main ol {
-    text-align: center;
-  }
-
-  .ctas {
-    flex-direction: column;
-  }
-
-  .ctas a {
-    font-size: 14px;
-    height: 40px;
-    padding: 0 16px;
-  }
-
-  a.secondary {
-    min-width: auto;
-  }
-
-  .footer {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
+.sendBtn img {
+  filter: brightness(0) invert(1); /* White icon for send button */
 }
